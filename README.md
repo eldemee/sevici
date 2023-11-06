@@ -67,6 +67,7 @@ Coordenadas = namedtuple('Coordenadas', 'latitud, longitud')
 # Creación de un tipo de namedtuple para las estaciones
 # type: Estacion(str, int, int, int, Coordenadas(float, float))
 Estacion = namedtuple('Estacion', 'nombre, bornetas, bornetas_vacias, bicis_disponibles, coordenadas')
+Estacion = namedtuple("estacion", ["nombre", "borretas", ])
 ```
 
 ### 1.2 Lectura de fichero
