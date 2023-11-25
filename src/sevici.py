@@ -26,8 +26,10 @@ def calcula_distancia(coordenadas1, coordenadas2):
     distancia = math.sqrt((coordenadas1.latitud-coordenadas2.latitud)**2 + (coordenadas1.longitud-coordenadas2.longitud)**2)
     return distancia
 
-def estaciones_cercanas(estaciones, coordenadas, k=5):
-    print([valor.coordenadas for valor in estaciones])
-    coordenadas_estaciones = [valor.coordenadas for valor in estaciones]
-    distancias = calcula_distancia(coordenadas, coordenadas_estaciones)
+def estaciones_cercanas(estaciones, mi_coordenadas, k=5):
+    distancias = []
+    #print([valor.coordenadas for valor in estaciones])
+    coordenadas_estaciones = [(valor.nombre, valor.bicis_disponibles, valor.coordenadas) for valor in estaciones]
+    for coordenada in coordenadas_estaciones:
+        distancias.append(((calcula_distancia(Coordenadas(mi_coordenadas[0], mi_coordenadas[1]), coordenada[2])), coordenada[0], coordenada[1]))
     return distancias
